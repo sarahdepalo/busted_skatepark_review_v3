@@ -1,4 +1,5 @@
 const db = require('./conn');
+const bcrypt = require('bcryptjs');
 
 
 class User {
@@ -18,7 +19,7 @@ class User {
         try {
             // This is a PREPARED STATEMENT!!
             // It will perform some basic sanitization for our inputs, removing any SQL injection risk
-            const query = `INSERT INTO users (firstName, last_name, email, password) VALUES ('${first_name}', '${last_name}', '${email}', '${password}') RETURNING id;`;
+            const query = `INSERT INTO users (first_name, last_name, email, password) VALUES ('${first_name}', '${last_name}', '${email}', '${password}') RETURNING id;`;
             const response = await db.one(query);
             return response;
         } catch (error) {

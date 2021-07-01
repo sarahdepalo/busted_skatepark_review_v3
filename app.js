@@ -13,14 +13,12 @@ app.engine('html', es6Renderer);
 app.set('views', './views');
 app.set('view engine', 'html');
 
-app.use(
-    session({
-        secret: 'get rad!',
-        resave: false,
-        saveUninitialized: false,
-        is_logged_in: false,
-    })
-);
+app.use(session({
+    secret: 'get rad!',
+    resave: false,
+    saveUninitialized: false,
+    is_logged_in: false
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

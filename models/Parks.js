@@ -4,6 +4,8 @@ class Parks {
     constructor(id, name, address, picture) {
         this.id = id;
         this.name = name;
+        this.address = address;
+        this.picture = picture;
     }
 
     static async getAll() {
@@ -27,3 +29,4 @@ class Parks {
 
 }
 
+module.exports = Parks;

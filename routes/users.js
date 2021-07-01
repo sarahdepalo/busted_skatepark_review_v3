@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const bycrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 const UsersModel = require('../models/Users');
 
 /* GET user routes */
@@ -39,7 +39,7 @@ router.post('/signup', async (req, res) => {
     const { first_name, last_name, email, password } = req.body;
     const salt = bcrypt.genSaltSync();
     const hash = bcrypt.hashSync(password, salt);
-    const response = await UsersModel.addUsr(first_name, last_name, email, hash);
+    const response = await UsersModel.addUser(first_name, last_name, email, hash);
     if (!!response.id) {
         res.redirect('/users/login');
     } else {

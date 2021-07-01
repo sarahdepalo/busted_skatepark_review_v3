@@ -1,6 +1,6 @@
 const express = require('express'),
     router = express.Router(),
-    ReviewsModel = require('../models/reviews');
+    ReviewsModel = require('../models/Reviews');
 
 router.post('/add', async (req, res) => {
     const { park_id, review_content, score } = req.body;
